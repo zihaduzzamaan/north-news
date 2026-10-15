@@ -47,30 +47,25 @@ export default function App() {
 
       {/* Main Container */}
       <main className="news-container">
-        {/* Active Category Header if filtered */}
+        {/* Minimal Category Filter Banner (No left border) */}
         {activeCategory !== 'all' && (
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '12px 16px',
-            backgroundColor: '#ffffff',
-            borderRadius: '8px',
-            marginBottom: '16px',
-            borderLeft: '4px solid var(--primary-red)'
-          }}>
-            <h2 style={{ fontSize: '20px', fontWeight: 700 }}>
-              বিভাগ: {navCategories.find((c) => c.id === activeCategory)?.label || activeCategory}
-            </h2>
+          <div className="category-filter-banner">
+            <div className="filter-banner-left">
+              <span className="filter-pill-tag">বিভাগ</span>
+              <h2 className="filter-category-name">
+                {navCategories.find((c) => c.id === activeCategory)?.label || activeCategory}
+              </h2>
+              <span className="filter-dot-separator">•</span>
+              <span className="filter-subtext">সংক্রান্ত বিশেষ সংবাদ ও প্রতিবেদন</span>
+            </div>
+
             <button 
               onClick={() => setActiveCategory('all')}
-              style={{
-                color: 'var(--primary-red)',
-                fontSize: '14px',
-                fontWeight: 600
-              }}
+              className="filter-clear-btn"
+              title="ফিল্টার মুছুন"
             >
-              সব খবর দেখুন
+              <span>সব খবর দেখুন</span>
+              <span className="filter-close-icon">✕</span>
             </button>
           </div>
         )}
