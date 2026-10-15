@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Eye } from 'lucide-react';
+import { Clock, Eye, ArrowRight } from 'lucide-react';
 import { heroCarousel, middleStories } from '../data/newsData';
 import PopularNews from './PopularNews';
 
@@ -19,11 +19,10 @@ export default function HeroSection({ onOpenArticle }) {
   return (
     <div className="hero-grid-wrapper">
       <div className="hero-grid">
-        {/* Left Column: Big Feature Story Carousel */}
+        {/* Column 1: Big Feature Story Carousel */}
         <div 
           className="hero-card"
           onClick={() => onOpenArticle(currentHero)}
-          style={{ cursor: 'pointer' }}
         >
           <img 
             src={currentHero.image} 
@@ -46,11 +45,11 @@ export default function HeroSection({ onOpenArticle }) {
             <div className="hero-meta-row">
               <div className="meta-info">
                 <span className="meta-item">
-                  <Clock size={15} />
+                  <Clock size={14} />
                   <span>{currentHero.date}</span>
                 </span>
                 <span className="meta-item">
-                  <Eye size={15} />
+                  <Eye size={14} />
                   <span>{currentHero.views}</span>
                 </span>
               </div>
@@ -74,13 +73,24 @@ export default function HeroSection({ onOpenArticle }) {
           </div>
         </div>
 
-        {/* Middle Column: 3 Regional News Stories */}
+        {/* Mobile Section Header for Regional Stories (Visible only on mobile) */}
+        <div className="section-header-bar mobile-section-header">
+          <div className="section-title-wrap">
+            <div className="section-vertical-bar" />
+            <h2 className="section-title-text">সর্বশেষ খবর</h2>
+          </div>
+          <a href="#latest" className="section-see-all">
+            <span>সব দেখুন</span>
+            <ArrowRight size={15} />
+          </a>
+        </div>
+
+        {/* Column 2: 3 Regional News Stories */}
         <div className="middle-column">
           {/* Top Train Card */}
           <div 
             className="middle-top-card"
             onClick={() => onOpenArticle(middleStories[0])}
-            style={{ cursor: 'pointer' }}
           >
             <div className="middle-top-img-wrapper">
               <img 
@@ -92,9 +102,11 @@ export default function HeroSection({ onOpenArticle }) {
                 className="category-tag" 
                 style={{ 
                   position: 'absolute', 
-                  bottom: '8px', 
-                  left: '8px',
-                  marginBottom: 0
+                  bottom: '6px', 
+                  left: '6px',
+                  marginBottom: 0,
+                  fontSize: '11px',
+                  padding: '2px 7px'
                 }}
               >
                 {middleStories[0].tag}
@@ -107,11 +119,11 @@ export default function HeroSection({ onOpenArticle }) {
               </h2>
               <div className="card-meta-row">
                 <span className="meta-item">
-                  <Clock size={14} />
+                  <Clock size={13} />
                   <span>{middleStories[0].date}</span>
                 </span>
                 <span className="meta-item">
-                  <Eye size={14} />
+                  <Eye size={13} />
                   <span>{middleStories[0].views}</span>
                 </span>
               </div>
@@ -131,7 +143,7 @@ export default function HeroSection({ onOpenArticle }) {
               />
             </div>
             <div className="horizontal-content">
-              <span className="category-tag" style={{ fontSize: '11px', padding: '2px 6px', marginBottom: '2px' }}>
+              <span className="category-tag" style={{ fontSize: '11px', padding: '1px 6px', marginBottom: '2px' }}>
                 {middleStories[1].tag}
               </span>
               <h3 className="horizontal-title">
@@ -139,11 +151,11 @@ export default function HeroSection({ onOpenArticle }) {
               </h3>
               <div className="card-meta-row">
                 <span className="meta-item">
-                  <Clock size={13} />
+                  <Clock size={12} />
                   <span>{middleStories[1].date}</span>
                 </span>
                 <span className="meta-item">
-                  <Eye size={13} />
+                  <Eye size={12} />
                   <span>{middleStories[1].views}</span>
                 </span>
               </div>
@@ -163,7 +175,7 @@ export default function HeroSection({ onOpenArticle }) {
               />
             </div>
             <div className="horizontal-content">
-              <span className="category-tag" style={{ fontSize: '11px', padding: '2px 6px', marginBottom: '2px' }}>
+              <span className="category-tag" style={{ fontSize: '11px', padding: '1px 6px', marginBottom: '2px' }}>
                 {middleStories[2].tag}
               </span>
               <h3 className="horizontal-title">
@@ -171,11 +183,11 @@ export default function HeroSection({ onOpenArticle }) {
               </h3>
               <div className="card-meta-row">
                 <span className="meta-item">
-                  <Clock size={13} />
+                  <Clock size={12} />
                   <span>{middleStories[2].date}</span>
                 </span>
                 <span className="meta-item">
-                  <Eye size={13} />
+                  <Eye size={12} />
                   <span>{middleStories[2].views}</span>
                 </span>
               </div>
@@ -183,7 +195,7 @@ export default function HeroSection({ onOpenArticle }) {
           </div>
         </div>
 
-        {/* Right Column: Popular News */}
+        {/* Column 3: Popular News (Exact level baseline alignment) */}
         <PopularNews onOpenArticle={onOpenArticle} />
       </div>
     </div>

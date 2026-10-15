@@ -4,7 +4,6 @@ import {
   Search, 
   Menu, 
   X, 
-  Sun, 
   CloudSun, 
   Facebook, 
   Youtube, 
@@ -33,10 +32,10 @@ export default function Header({ activeCategory, onSelectCategory }) {
             </a>
           </div>
 
-          {/* Right Header items (Desktop: Social + Weather, Mobile: Weather + Search + Menu) */}
+          {/* Right Header items */}
           <div className="header-right">
             {/* Desktop Social Media Icons */}
-            <div className="social-links" style={{ display: 'flex' }}>
+            <div className="social-links">
               <a 
                 href="https://facebook.com" 
                 target="_blank" 
@@ -75,7 +74,7 @@ export default function Header({ activeCategory, onSelectCategory }) {
 
             {/* Weather Widget */}
             <div className="weather-widget">
-              <CloudSun size={26} color="#fbbf24" />
+              <CloudSun size={24} color="#fbbf24" />
               <span className="weather-temp">28°C</span>
               <div className="weather-details">
                 <span className="weather-city">রংপুর</span>
@@ -83,20 +82,28 @@ export default function Header({ activeCategory, onSelectCategory }) {
               </div>
             </div>
 
-            {/* Mobile Hamburger Toggle */}
-            <button 
-              className="nav-menu-btn" 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              style={{ display: 'none' }}
-              id="mobile-menu-trigger"
-            >
-              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-            </button>
+            {/* Mobile Header Tools: Search & Menu */}
+            <div className="mobile-header-tools">
+              <button 
+                className="mobile-icon-btn"
+                onClick={() => setSearchOpen(!searchOpen)}
+                title="অনুসন্ধান"
+              >
+                <Search size={22} />
+              </button>
+              <button 
+                className="mobile-icon-btn" 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                title="মেনু"
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Search Input Bar (Dropdown) */}
+      {/* Search Input Bar */}
       {searchOpen && (
         <div style={{
           backgroundColor: '#ffffff',
@@ -147,7 +154,8 @@ export default function Header({ activeCategory, onSelectCategory }) {
                 onClick={(e) => { e.preventDefault(); onSelectCategory('all'); }}
                 title="হোম"
               >
-                <Home size={18} />
+                <span className="desktop-home-icon"><Home size={18} /></span>
+                <span className="mobile-home-text" style={{ display: 'none' }}>হোম</span>
               </a>
             </li>
 
@@ -170,7 +178,7 @@ export default function Header({ activeCategory, onSelectCategory }) {
 
           {/* Desktop Hamburger menu button */}
           <button 
-            className="nav-menu-btn" 
+            className="desktop-menu-btn" 
             title="মেনু"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -184,7 +192,7 @@ export default function Header({ activeCategory, onSelectCategory }) {
         <div style={{
           position: 'fixed',
           inset: 0,
-          backgroundColor: 'rgba(0,0,0,0.6)',
+          backgroundColor: 'rgba(0,0,0,0.65)',
           zIndex: 999,
           display: 'flex',
           justifyContent: 'flex-end'
