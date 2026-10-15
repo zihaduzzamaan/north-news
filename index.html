@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Image</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .fullscreen-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .mobile-image {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .desktop-image {
+        display: none;
+      }
+
+      .mobile-image {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <img
+    class="fullscreen-image desktop-image"
+    src="desktop.jpg"
+    alt=""
+  >
+
+  <img
+    class="fullscreen-image mobile-image"
+    src="mobile.jpg"
+    alt=""
+  >
+
+</body>
+</html>
