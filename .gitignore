@@ -1,0 +1,5 @@
+node_modules/
+scratch/
+extract_assets.py
+.DS_Store
+*.log

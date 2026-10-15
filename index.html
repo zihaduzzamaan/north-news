@@ -1,61 +1,17 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fullscreen Image</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .fullscreen-image {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .mobile-image {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .desktop-image {
-        display: none;
-      }
-
-      .mobile-image {
-        display: block;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northern Herald | সত্য, আস্থা ও তথ্য - দৈনিক নর্দার্ন হেরাল্ড</title>
+  <meta name="description" content="দৈনিক নর্দার্ন হেরাল্ড - উত্তরাঞ্চল ও রংপুরের সর্বশেষ খবর, জাতীয়, আন্তর্জাতিক, অর্থনীতি, রাজনীতি, কৃষি ও জীবনধারা।" />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-  <img
-    class="fullscreen-image desktop-image"
-    src="desktop.jpg"
-    alt=""
-  >
-
-  <img
-    class="fullscreen-image mobile-image"
-    src="mobile.jpg"
-    alt=""
-  >
-
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
